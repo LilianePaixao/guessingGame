@@ -9,6 +9,12 @@ let xAttempts = 1
 //Events
 btnTry.addEventListener('click', handleTryClick)
 btnReset.addEventListener('click', handleResetClick)
+document.addEventListener('Keydown', function(e){
+  if(e.key == 'Enter' && screen1.classList.contains('hide')) {
+    handleResetClick()
+  }
+})
+
 
 //Functions
 function handleTryClick(event) {
@@ -29,6 +35,7 @@ function handleResetClick(){
   toggleScreen()
   xAttempts = 1
   inputNumber.value = ""
+  let randomNumber = Math.round(Math.random() * 10)
 }
 
 function toggleScreen(){
